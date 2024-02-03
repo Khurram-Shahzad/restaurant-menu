@@ -16,6 +16,7 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(Category::class)->constrained();
             $table->string('name');
+            $table->integer('discount')->nullable();
             $table->integer('parent_subcategory_id')->nullable();
             $table->timestamps();
         });

@@ -3,7 +3,8 @@ import AppLayout from '@/Layouts/AppLayout.vue';
 import ApplicationLogo from "@/Components/ApplicationLogo.vue";
 import {Link, useForm} from "@inertiajs/vue3";
 let form = useForm({
-    name: ''
+    name: '',
+    discount: ''
 });
 
 let submit = () => {
@@ -27,6 +28,10 @@ let submit = () => {
                             <div>
                                 <label class="block" for="category">Enter Category Name</label>
                                 <input type="text" v-model="form.name" required>
+                            </div>
+                            <div>
+                                <label class="block" for="discount">Discount</label>
+                                <input type="number"  v-model="form.discount">
                             </div>
                             <div>
                                 <input type="submit" value="Create Category">

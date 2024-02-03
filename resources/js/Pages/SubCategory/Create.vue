@@ -8,6 +8,7 @@ const props = defineProps(['categories'])
 let form = useForm({
     category_id: '',
     parent_subcategory_id: '',
+    discount: '',
     name: ''
 });
 const displaySubCategories = ref(false);
@@ -72,9 +73,15 @@ let submit = () => {
                                     <option v-for="subcategory in subCategories" :value="subcategory.id" :key="subcategory.id" v-text="subcategory.name"></option>
                                 </select>
                             </div>
+
                             <div>
                                 <label class="block" for="name">SubCategory Name</label>
                                 <input type="text" v-model="form.name" required>
+                            </div>
+
+                            <div>
+                                <label class="block" for="discount">Discount</label>
+                                <input type="number"  v-model="form.discount">
                             </div>
 
                             <div>

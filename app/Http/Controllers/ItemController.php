@@ -40,7 +40,8 @@ class ItemController extends Controller
         $attributes = request()->validate([
             'category_id' => 'required',
             'sub_category_id' => 'nullable|integer',
-            'name' => 'required'
+            'name' => 'required',
+            'discount' => 'nullable|integer'
         ]);
         Item::query()->create($attributes);
         return redirect()->route('item');

@@ -41,7 +41,8 @@ class SubCategoryController extends Controller
         $attributes = request()->validate([
             'category_id' => 'required',
             'parent_subcategory_id' => 'nullable|integer',
-            'name' => 'required'
+            'name' => 'required',
+            'discount' => 'nullable|integer'
         ]);
         SubCategory::query()->create($attributes);
         return redirect()->route('subcategory');

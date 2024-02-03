@@ -8,7 +8,8 @@ const props = defineProps(['categories'])
 let form = useForm({
     category_id: '',
     sub_category_id: '',
-    name: ''
+    name: '',
+    discount: ''
 });
 
 const displaySubCategories = ref(false);
@@ -64,6 +65,11 @@ let submit = () => {
                             <div>
                                 <label class="block" for="name">Item Name</label>
                                 <input type="text" v-model="form.name" required>
+                            </div>
+
+                            <div>
+                                <label class="block" for="discount">Discount</label>
+                                <input type="number" v-model="form.discount">
                             </div>
 
                             <div>

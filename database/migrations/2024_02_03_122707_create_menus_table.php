@@ -17,6 +17,7 @@ return new class extends Migration
         Schema::create('menus', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->integer('discount')->nullable();
             $table->timestamps();
         });
     }

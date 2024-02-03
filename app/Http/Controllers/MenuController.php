@@ -25,6 +25,7 @@ class MenuController extends Controller
     public function index()
     {
         $menus = $this->menuService->getAllMenus();
+        $menuWithDiscounts = $this->menuService->getAllMenusWithDiscount();
         return Inertia::render('Menu/Index', [
             'menus' => $menus
         ]);
@@ -38,7 +39,8 @@ class MenuController extends Controller
     public function store()
     {
         $attributes = request()->validate([
-            'name' => 'required'
+            'name' => 'required',
+            'discount' => 'nullable|integer'
         ]);
         Menu::query()->create($attributes);
         return redirect()->route('menu');

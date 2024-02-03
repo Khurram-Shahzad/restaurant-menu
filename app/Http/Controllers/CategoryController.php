@@ -32,8 +32,10 @@ class CategoryController extends Controller
     public function store()
     {
         $attributes = request()->validate([
-            'name' => 'required'
+            'name' => 'required',
+            'discount' => 'nullable|integer'
         ]);
+
         Category::query()->create($attributes);
         return redirect()->route('category');
     }

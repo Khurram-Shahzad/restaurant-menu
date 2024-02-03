@@ -5,7 +5,8 @@ import {Link, useForm} from "@inertiajs/vue3";
 import {ref} from "vue";
 
 let form = useForm({
-    name: ''
+    name: '',
+    discount: ''
 });
 
 let submit = () => {
@@ -29,6 +30,10 @@ let submit = () => {
                             <div>
                                 <label class="block" for="name">Menu Name</label>
                                 <input type="text" v-model="form.name" required>
+                            </div>
+                            <div>
+                                <label class="block" for="discount">Discount</label>
+                                <input type="number"  v-model="form.discount">
                             </div>
 
                             <div>

@@ -3,7 +3,7 @@ import AppLayout from '@/Layouts/AppLayout.vue';
 import ApplicationLogo from "@/Components/ApplicationLogo.vue";
 import {Link} from "@inertiajs/vue3";
 import {onMounted} from "vue";
-const props = defineProps(['menus'])
+const props = defineProps(['menus', 'menuWithDiscounts'])
 </script>
 
 <template>
@@ -26,11 +26,15 @@ const props = defineProps(['menus'])
 
                         </div>
                         <ul>
-                            <li v-for="menu in menus">
-                                {{ menu.name}}
-                                <ul v-if="menu.items.length">
-                                    <li v-for="item in menu.items" v-text="item.name"></li>
-                                </ul>
+
+                            <li v-for="menu in menus" v-text="menu.name" :key="menu.id"></li>
+                        </ul>
+                        <ul v-if="menuWithDiscounts">
+                            <li v-for="(value, index) in menuWithDiscounts">
+                            {{ index }}
+                            <ul v-for="menu in value">
+                                {{ menu.name  }} - Discount ( {{ menu.discount }} )
+                            </ul>
                             </li>
                         </ul>
                     </div>
