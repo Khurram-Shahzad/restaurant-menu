@@ -27,7 +27,8 @@ class MenuController extends Controller
         $menus = $this->menuService->getAllMenus();
         $menuWithDiscounts = $this->menuService->getAllMenusWithDiscount();
         return Inertia::render('Menu/Index', [
-            'menus' => $menus
+            'menus' => $menus,
+            'menuWithDiscounts' => $menuWithDiscounts
         ]);
     }
 
