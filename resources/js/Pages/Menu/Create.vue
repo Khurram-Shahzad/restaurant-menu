@@ -1,0 +1,43 @@
+<script setup>
+import AppLayout from '@/Layouts/AppLayout.vue';
+import ApplicationLogo from "@/Components/ApplicationLogo.vue";
+import {Link, useForm} from "@inertiajs/vue3";
+import {ref} from "vue";
+
+let form = useForm({
+    name: ''
+});
+
+let submit = () => {
+    form.post(route('menu.store'));
+}
+</script>
+
+<template>
+    <AppLayout title="Menu">
+        <template #header>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                Create Menu
+            </h2>
+        </template>
+
+        <div class="py-12">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                    <div class="p-6 lg:p-8 bg-white border-b border-gray-200">
+                        <form @submit.prevent="submit">
+                            <div>
+                                <label class="block" for="name">Menu Name</label>
+                                <input type="text" v-model="form.name" required>
+                            </div>
+
+                            <div>
+                                <input type="submit" value="Create Menu">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </AppLayout>
+</template>
